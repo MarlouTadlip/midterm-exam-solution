@@ -44,5 +44,5 @@ function deleteTask(id) {
         console.log('Task not found.');
         return;
     }
-    const deletedTask = tasks.splice(index, 1);
+    tasks.splice(index, 1);
 }
