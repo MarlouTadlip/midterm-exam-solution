@@ -4,8 +4,17 @@ let tasks = [];
 //initial task id
 let taskId = 1;
 
+//model of tasks
+class Task {
+    constructor(id, name, description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+}
+
 // function to create add a new task
-function addTask(name, description) {
+const addTask = (name, description) => {
     const newTask = {
         id: taskId++,  
         name: name,
@@ -15,7 +24,7 @@ function addTask(name, description) {
 }
 
 // function to read view all tasks
-function viewTasks() {
+const viewTasks = () => {
     if (tasks.length === 0) {
         console.log('No tasks available.');
         return;
@@ -27,7 +36,7 @@ function viewTasks() {
 }
 
 // function to update a task by ID
-function updateTask(id, newName, newDescription) {
+const updateTask = (id, newName, newDescription) => {
     const task = tasks.find(task => task.id === id);
     if (!task) {
         console.log('Task not found.');
@@ -38,7 +47,7 @@ function updateTask(id, newName, newDescription) {
 }
 
 // function to delete a task by ID
-function deleteTask(id) {
+const deleteTask = (id) => {
     const index = tasks.findIndex(task => task.id === id);
     if (index === -1) {
         console.log('Task not found.');
